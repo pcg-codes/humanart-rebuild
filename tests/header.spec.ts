@@ -8,7 +8,7 @@ test("header decoration shifts left and logos grow only on mobile", async ({ pag
   if (page.viewportSize()!.width < 768) {
     for (const width of [320, 390]) {
       await page.setViewportSize({ width, height: 844 });
-      await expect(decoration).toHaveCSS("left", "-160px");
+      await expect(decoration).toHaveCSS("left", "-128px");
       const boxes = await logos.evaluateAll((images) => images.map((image) => {
         const { x, y, width, height } = image.getBoundingClientRect();
         return { x, y, width, height };

@@ -169,7 +169,7 @@ svg { vertical-align: middle; }
 @media (min-width: 48em) { .header-block__logos { gap: 3rem; } }
 @media (max-width: 47.99em) {
   .header-block { min-height: 7.5rem; }
-  .header-block__decoration { left: -10rem; }
+  .header-block__decoration { left: -8rem; }
   .header-block__container { padding: 0.75rem var(--ff-grid-margin); }
   .header-block__logo { width: clamp(5.5rem, 25vw, 6rem); height: clamp(5.5rem, 25vw, 6rem); }
   .header-block__logos { justify-content: flex-end; gap: 1rem; }
