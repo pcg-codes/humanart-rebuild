@@ -39,7 +39,7 @@ test("complete static page, local assets, and no horizontal overflow", async ({ 
   await page.screenshot({ path: testInfo.outputPath("full-page.png"), fullPage: true });
 });
 
-test("layout matches the original section heights", async ({ page }, testInfo) => {
+test("sections outside the hero retain their original heights", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name === "tablet", "Reference measurements are desktop and mobile.");
   await page.goto("/", { waitUntil: "networkidle" });
   await page.evaluate(() => document.fonts.ready);
@@ -52,7 +52,7 @@ test("layout matches the original section heights", async ({ page }, testInfo) =
     : [623.9375, 945.875, 1314, 1799.484375, 806.859375, 1915.75, 1971.921875, 1196, 906, 136];
 
   expect(actual).toHaveLength(expected.length);
-  actual.forEach((height, index) => expect(Math.abs(height - expected[index])).toBeLessThan(1));
+  actual.slice(1).forEach((height, index) => expect(Math.abs(height - expected[index + 1])).toBeLessThan(1));
 });
 
 test("buttons are decorative and do not navigate or submit", async ({ page }) => {
