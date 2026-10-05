@@ -26,7 +26,9 @@ Next.js erzeugt eine vollständig statische Website im Ordner `out/`. `npm start
 
 1. Das Projekt in ein eigenes Git-Repository übernehmen und zu GitHub/GitLab pushen.
 2. Das Repository in Vercel importieren und diesen Projektordner als Root Directory auswählen.
-3. Deployen. `vercel.json` enthält das Next.js-Preset, den Build-Befehl und das Ausgabeverzeichnis.
+3. Deployen. `vercel.json` setzt das Framework-Preset auf „Other“ (`framework: null`), führt `npm run build` aus und veröffentlicht die statischen Dateien aus `out/`.
+
+Das Next.js-Preset darf hier nicht mit dem Ausgabeverzeichnis `out/` kombiniert werden: Es erwartet dort Next.js-Build-Manifeste wie `routes-manifest.json`, die beim statischen Export im internen Build-Ordner `.next/` liegen.
 
 Alternativ mit der Vercel CLI aus diesem Ordner: `npx vercel`.
 
